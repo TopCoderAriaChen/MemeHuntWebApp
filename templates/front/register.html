@@ -1,0 +1,57 @@
+{% extends 'front/base.html' %}
+
+{% block title %}
+  Register
+{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static',filename='front/css/sign.css') }}">
+  <script src="{{ url_for('static',filename='front/js/register.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+  <h1 class="page-title">Register</h1>
+  <div class="sign-box">
+    <form action="{{ url_for('user.register') }}" method="post" id="register-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" name="email" placeholder="email">
+          <div class="input-group-append">
+            <button id="captcha-btn" class="btn btn-outline-secondary">send validation</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="captcha" placeholder="email validation">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="username" placeholder="username">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="password">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="confirm_password" placeholder="confirm password">
+      </div>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="form-group">
+            <ul>
+              {% for message in messages %}
+                <li class="text-danger">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      {% endwith %}
+      <div class="form-group">
+        <button class="btn btn-warning btn-block" id="submit-btn">Register</button>
+      </div>
+      <div class="form-group">
+        <a href="#" class="signup-link">return</a>
+        <a href="#" class="resetpwd-link" style="float:right;">forgot password</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="Ask online Form">
+    <meta name="description" content="The Ask is a bootstrap design help desk, support forum website template coded and designed with bootstrap Design, Bootstrap, HTML5 and CSS. Ask ideal for wiki sites, knowledge base sites, support forum sites">
+    <meta name="keywords" content="HTML, CSS, JavaScript,Bootstrap,js,Forum,webstagram ,webdesign ,website ,web ,webdesigner ,webdevelopment">
+    <meta name="robots" content="index, nofollow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css">
+    <!-- <link href="css/animate.css" rel="stylesheet" type="text/css"> -->
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static',filename='common/zlajax.js') }}"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static',filename='front/css/base.css') }}">
+  <title>{% block title %}{% endblock %}</title>
+  {% block head %}{% endblock %}
+</head>
+<body>
+
+<nav class="top-bar navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"> Request</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-menu-left-side239 collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home Page <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <form class="form-inline my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="key word" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search</button>
+    </form>
+    <ul class="navbar-nav ml-4">
+      {% if g.user %}
+        {% if g.user.is_staff %}
+          <li class="nav-item">
+            <a href="{{ url_for('cms.index') }}" class="nav-link">system_manage</a>
+          </li>
+        {% endif %}
+        <li class="nav-item">
+          <a href="{{ url_for('user.profile',user_id=g.user.id) }}" class="nav-link">{{ g.user.username }}</a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ url_for("user.logout") }}" class="nav-link">logout</a>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('user.login') }}">login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('user.register') }}">register</a>
+        </li>
+      {% endif %} 
+    </ul>
+  </div>
+</nav>
+<div class="main-container">
+  {% block body %}{% endblock %}
+</div>
+</body>
+</html>

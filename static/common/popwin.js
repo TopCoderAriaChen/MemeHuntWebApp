@@ -1,0 +1,4 @@
+function popwin(){
+    alert("popwin");
+
+}
