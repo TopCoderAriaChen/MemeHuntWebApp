@@ -48,7 +48,7 @@ class UserModel(db.Model):
   is_staff = db.Column(db.Boolean, default=False)
   is_active = db.Column(db.Boolean,default=True)
 
-  # 外键
+  # Foreign Key
   role_id = db.Column(db.Integer, db.ForeignKey("role.id"))
   role = db.relationship("RoleModel", backref="users")
 

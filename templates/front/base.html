@@ -34,7 +34,7 @@
 <body>
 
 <nav class="top-bar navbar navbar-expand-lg navbar-light" class0="  bg-light">
-  <a class="navbar-brand" href="/introductory"> Request</a>
+  <a class="navbar-brand" href="/"> Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -43,12 +43,12 @@
   <div class="navbar-menu-left-side239 collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home Page <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Dashboard <span class="sr-only">(current)</span></a>
       </li>
     </ul>
     <form class="form-inline my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="key word" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
     <ul class="navbar-nav ml-4">
       {% if g.user %}
@@ -61,14 +61,14 @@
           <a href="{{ url_for('user.profile',user_id=g.user.id) }}" class="nav-link">{{ g.user.username }}</a>
         </li>
         <li class="nav-item">
-          <a href="{{ url_for("user.logout") }}" class="nav-link">logout</a>
+          <a href="{{ url_for("user.logout") }}" class="nav-link">Logout</a>
         </li>
       {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('user.login') }}">login</a>
+          <a class="nav-link" href="{{ url_for('user.login') }}">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('user.register') }}">register</a>
+          <a class="nav-link" href="{{ url_for('user.register') }}">Register</a>
         </li>
       {% endif %} 
     </ul>

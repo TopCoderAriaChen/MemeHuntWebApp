@@ -17,11 +17,11 @@ def create_permission():
 
 
 def create_role():
-  # 稽查员
+  # Checker
   inspector = RoleModel(name="checker",desc="check message！")
   inspector.permissions = PermissionModel.query.filter(PermissionModel.name.in_([PermissionEnum.POST,PermissionEnum.COMMENT])).all()
 
-  # 运营
+  # Runner
   operator = RoleModel(name="runner",desc="maintain to run the web")
   operator.permissions = PermissionModel.query.filter(PermissionModel.name.in_([
     PermissionEnum.POST,
@@ -30,7 +30,7 @@ def create_role():
     PermissionEnum.FRONT_USER
   ])).all()
 
-  # 管理员
+  # Administrator
   administrator = RoleModel(name="administrator",desc="web development！")
   administrator.permissions = PermissionModel.query.all()
 
