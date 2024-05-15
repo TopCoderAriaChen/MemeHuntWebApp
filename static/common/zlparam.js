@@ -1,6 +1,10 @@
+/**
+ * Created by Administrator on 2017/3/24.
+ */
+
 var zlparam = {
     setParam: function (href,key,value) {
-        // Reload the Page
+        // 重新加载整个页面
         var isReplaced = false;
         var urlArray = href.split('?');
         if(urlArray.length > 1){

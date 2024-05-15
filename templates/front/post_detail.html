@@ -3,19 +3,22 @@
 {% block title %}
   {{ post.title }}
 {% endblock %}
-
 {% block head %}
+  <script src="https://cdn.jsdelivr.net/npm/wangeditor@latest/dist/wangEditor.min.js"></script>
+  <script src="{{ url_for('static',filename='front/js/public_post.js') }}"></script>
+
   <link rel="stylesheet" href="{{ url_for('static',filename='front/css/post_detail.css') }}">
 {% endblock %}
 
 {% block body %}
   <div class="lg-container">
     <div class="post-container">
-      <h2>{{ post.title }}</h2>
+      <h2><div align="center">{{ post.title }}</div></h2>
       <p class="post-info-group">
         <span>post time：{{ post.create_time }}</span>
         <span>anthor：<a href="{{ url_for('user.profile',user_id=post.author.id) }}">{{ post.author.username }}</a></span>
         <span>broad：{{ post.board.name }}</span>
+        <span>credit：{{ post.credit }}</span>
         <span>read：{{ post.read_count }}</span>
         <span>remark：{{ post.comments.count() }}</span>
       </p>
@@ -33,9 +36,12 @@
                 <span>{{ comment.author.username }}</span>
                 <span>{{ comment.create_time }}</span>
               </p>
-              <p class="comment-txt">
-                {{ comment.content }}
-              </p>
+              <!--p class="comment-txt need add {}">
+                comment.content
+              </p-->
+             <article class="comment-txt">
+                {{ comment.content|safe }}
+              </article>
             </div>
           </li>
         {% endfor %}
@@ -43,8 +49,8 @@
     </div>
     <div class="add-comment-group">
       <h3>Post Remark</h3>
-      <form action="{{ url_for('front.public_comment',post_id=post.id) }}" method="post">
-        <textarea class="form-control" name="content" id="editor" cols="30" rows="5"></textarea>
+      <form id="comment_form" action="{{ url_for('front.public_comment',post_id=post.id) }}" method="post">
+        <!--textarea class="form-control" name="content0" id="editor0" cols="30" rows="5"></textarea-->
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         {% with messages = get_flashed_messages()  %}
           {% if messages %}
@@ -53,8 +59,16 @@
             {% endfor %}
           {% endif %}
         {% endwith %}
+        <!--div class="form-group">
+          <label>Accept degree:1-5</label>
+          <input type="text" class="form-control" name="accept" value="0"/>
+        </div-->
+        <div class="form-group">
+          <!--label>content</label-->
+          <div id="editor"></div>
+        </div>
         <div class="comment-btn-group">
-          <button class="btn btn-primary" id="comment-btn">Post</button>
+          <button class="btn btn-primary" id="comment-btn">P o s t</button>
         </div>
       </form>
     </div>

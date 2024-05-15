@@ -14,9 +14,9 @@ class BaseConfig:
 
 class DevelopmentConfig(BaseConfig):
 
-  SQLALCHEMY_DATABASE_URI0 = "mysql+pymysql://root:cyxxx@127.0.0.1:3306/pythonbbs?charset=utf8mb4"
+  SQLALCHEMY_DATABASE_URI0 = "mysql+pymysql://root:cyxxx@127.0.0.1:3306/CITS5505-Group-Project?charset=utf8mb4"
 
-  SQLALCHEMY_DATABASE_URI = "sqlite:////Users/cyxxx/Desktop/pythonbbs_new/db.sqlite"
+  SQLALCHEMY_DATABASE_URI = "sqlite:////Users/cyxxx/Desktop/CITS5505-Group-Project/db.sqlite"
 
   MAIL_SERVER = "smtp.163.com"
   MAIL_USE_SSL = True
@@ -40,8 +40,8 @@ class DevelopmentConfig(BaseConfig):
 
 
 class TestingConfig(BaseConfig):
-  SQLALCHEMY_DATABASE_URI0 = "mysql+pymysql://[user]:[pass]@[IP]:[port]/pythonbbs?charset=utf8mb4"
+  SQLALCHEMY_DATABASE_URI0 = "mysql+pymysql://[user]:[pass]@[IP]:[port]/CITS5505-Group-Project?charset=utf8mb4"
 
 
 class ProductionConfig(BaseConfig):
-  SQLALCHEMY_DATABASE_URI0 = "mysql+pymysql://bbs:Bbs#hwygl123@127.0.0.1:3306/pythonbbs?charset=utf8mb4"
+  SQLALCHEMY_DATABASE_URI0 = "mysql+pymysql://bbs:Bbs#hwygl123@127.0.0.1:3306/CITS5505-Group-Project?charset=utf8mb4"

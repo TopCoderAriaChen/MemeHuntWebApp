@@ -5,6 +5,7 @@ var zlajax = {
     return this.ajax(args);
   },
   'post': function (args) {
+    //alert("ajax post");
     args['method'] = "post"
     return this.ajax(args);
   },
@@ -17,7 +18,7 @@ var zlajax = {
     return this.ajax(args)
   },
   'ajax': function (args) {
-    // set csrftoken
+    // 设置csrftoken
     this._ajaxSetup();
     return $.ajax(args);
   },

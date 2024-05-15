@@ -15,7 +15,7 @@
     <meta name="language" content="English">
 
     <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/style.css" rel="stylesheet" type="text/css">
+
     <!-- <link href="css/animate.css" rel="stylesheet" type="text/css"> -->
     <link href="/static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -25,13 +25,16 @@
   <script src="{{ url_for('static',filename='common/zlajax.js') }}"></script>
 
   <link rel="stylesheet" href="{{ url_for('static',filename='front/css/base.css') }}">
+
+  <link href="/static/css/style.css" rel="stylesheet" type="text/css">
+
   <title>{% block title %}{% endblock %}</title>
   {% block head %}{% endblock %}
 </head>
 <body>
 
-<nav class="top-bar navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"> Request</a>
+<nav class="top-bar navbar navbar-expand-lg navbar-light" class0="  bg-light">
+  <a class="navbar-brand" href="/introductory"> Request</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

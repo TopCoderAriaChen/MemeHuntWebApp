@@ -19,6 +19,7 @@
             <p class="post-info">
               <span>anthor：{{ post.author.username }}</span>
               <span>publish time：{{ post.create_time }}</span>
+              <span>credit：{{ post.credit }}</span>
               <span>remark：{{ post.comments.all()|length }}</span>
             </p>
           </div>
@@ -28,23 +29,30 @@
       {{ pagination.links }}
     </div>
   </div>
-  <div class="sm-container">
+
+  <div class = "sm-container">
+
     <div style="padding-bottom:10px;">
       <a href="{{ url_for("front.public_post") }}" class="btn btn-warning btn-block">Post a new message </a>
     </div>
-    <div class="list-group">
+
+
       {% if current_board %}
-        <a href="/" class="list-group-item">all board</a>
+        <a href="/" class="list-group-item">all Category</a>
       {% else %}
-        <a href="/" class="list-group-item active">all broad</a>
+        <a href="/" class="list-group-item active">all Category</a>
       {% endif %}
-      {% for board in boards %}
-        {% if board.id == current_board %}
-          <a href="{{ url_for('front.index',board_id=board.id) }}" class="list-group-item active">{{ board.name }}</a>
-        {% else %}
-          <a href="{{ url_for('front.index',board_id=board.id) }}" class="list-group-item">{{ board.name }}</a>
-        {% endif %}
-      {% endfor %}
-    </div>
+
+       <div class="categori-part329">
+          <h4>Category</h4>
+          {% for board in boards %}
+            {% if board.id == current_board %}
+              <a href="{{ url_for('front.index',board_id=board.id) }}" class="list-group-item active">{{ board.name }}</a>
+            {% else %}
+              <a href="{{ url_for('front.index',board_id=board.id) }}" class="list-group-item">{{ board.name }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+
   </div>
 {% endblock %}
