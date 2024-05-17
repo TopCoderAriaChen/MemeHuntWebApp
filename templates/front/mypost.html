@@ -1,0 +1,58 @@
+{% extends "front/base.html" %}
+
+{% block title %} The Post Request{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static',filename='front/css/index.css') }}">
+{% endblock %}
+
+{% block body %}
+  <div class="lg-container">
+    <div class="post-group">
+      <ul class="post-list-group">
+        {% for post in posts %}
+          <li>
+          <div class="post-info-group">
+            <p class="post-title">
+              <a href="{{ url_for('front.post_detail',post_id=post.id) }}">{{ post.title }}</a>
+            </p>
+            <p class="post-info">
+              <span>anthor：{{ post.author.username }}</span>
+              <span>publish time：{{ post.create_time }}</span>
+              <span>credit：{{ post.credit }}</span>
+              <span>remark：{{ post.comments.all()|length }}</span>
+            </p>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {{ pagination.links }}
+    </div>
+  </div>
+
+  <div class = "sm-container">
+
+    <div style="padding-bottom:10px;">
+      <a href="{{ url_for("front.public_post") }}" class="btn btn-warning btn-block">Post a new message </a>
+    </div>
+
+
+      {% if current_board %}
+        <a href="/" class="list-group-item">all Category</a>
+      {% else %}
+        <a href="/" class="list-group-item active">all Category</a>
+      {% endif %}
+
+       <div class="categori-part329">
+          <h4>Category</h4>
+          {% for board in boards %}
+            {% if board.id == current_board %}
+              <a href="{{ url_for('front.index',board_id=board.id) }}" class="list-group-item active">{{ board.name }}</a>
+            {% else %}
+              <a href="{{ url_for('front.index',board_id=board.id) }}" class="list-group-item">{{ board.name }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+  </div>
+{% endblock %}

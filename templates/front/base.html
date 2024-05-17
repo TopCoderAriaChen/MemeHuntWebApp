@@ -43,11 +43,23 @@
   <div class="navbar-menu-left-side239 collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home Page <span class="sr-only">(current)</span></a>
+         <a class="nav-link" href="/myrank">Dashboard<span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/index">All Post <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/mypost">My Post <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/mycomment">My Comment<span class="sr-only">(current)</span></a>
+      </li>
+
     </ul>
-    <form class="form-inline my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="key word" aria-label="Search">
+
+     <form class="form-inline my-lg-0" action="/search" method="post">
+      <input class="form-control mr-sm-2"  placeholder="key word" name="key" aria-label="Search">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search</button>
     </form>
     <ul class="navbar-nav ml-4">

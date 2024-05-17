@@ -18,14 +18,14 @@
 
 {% block body %}
   <div class="profile-box">
-  <h1 style="text-align: center;">{{ user.username }}User Center</h1>
+  <h1 style="text-align: center;">{{ user.username }}&nbsp; User Center</h1>
     <form action="{{ url_for('user.edit_profile') }}" method="post" enctype="multipart/form-data">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <table class="table table-bordered mt-5">
         <tbody>
           <tr>
             <th width="100px">username：</th>
-            <td>
+            <td colspan="2">
               {% if is_mine %}
                 <input type="text" name="username" value="{{ user.username }}">
               {% else %}
@@ -33,22 +33,35 @@
               {% endif %}
             </td>
           </tr>
+
           <tr>
             <th>photo：</th>
             <td>
               {% if user.avatar %}
-                <img src="{{ user.avatar }}" alt="">
+                <img height=100 width=100 src="{{ user.avatar }}" alt=""/>
               {% else %}
-                <img class="avatar" src="{{ avatars.gravatar(user.email|email_hash)|replace('https://gravatar.com/avatar/','https://cdn.v2ex.com/gravatar/') }}" alt="">
+                <img class="avatar" src="{{ avatars.gravatar(user.email|email_hash)|replace('https://gravatar.com/avatar/','https://cdn.v2ex.com/gravatar/') }}" alt=""/>
               {% endif %}
               {% if is_mine %}
-                <input type="file" name="avatar" accept="image/jpeg, image/png" value="upload">
+                  <td>
+                <input type="file" name="avatar" accept="image/jpeg, image/png" value="upload"/>
+                  </td>
               {% endif %}
+            </td>
+          </tr>
+          <tr >
+            <th>credit：</th>
+            <td colspan="2">   <input type="text" name="credit" value="{{ user.credit }}" disabled="disabled">
+            </td>
+          </tr>
+          <tr>
+            <th>level：</th>
+            <td colspan="2">   <input type="text" name="level" value="{{ user.level }}" disabled="disabled">
             </td>
           </tr>
           <tr>
             <th>signature：</th>
-            <td>
+            <td colspan="2">
               {% if is_mine %}
                 <input type="text" name="signature" value="{{ user.signature or '' }}">
               {% else %}

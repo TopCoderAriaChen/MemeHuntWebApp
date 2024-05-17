@@ -8,6 +8,8 @@
   <script src="{{ url_for('static',filename='front/js/public_post.js') }}"></script>
 
   <link rel="stylesheet" href="{{ url_for('static',filename='front/css/post_detail.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='front/css/start.css') }}">
+  <!--link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" -->
 {% endblock %}
 
 {% block body %}
@@ -42,7 +44,29 @@
               </p-->
              <article class="comment-txt">
                 {{ comment.content|safe }}
-              </article>
+             </article>
+            {% if comment.author_id!=current_user %}
+             <div class="stars">
+                 <form id="accpet_form" action="{{ url_for('front.comment_accept',post_id=post.id) }}" method="post">
+                    <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <input class="star star-5" id="star-5" type="radio" name="star5"/>
+                    <label class="star star-5" for="star-5"></label>
+                    <input class="star star-4" id="star-4" type="radio" name="star4"/>
+                    <label class="star star-4" for="star-4"></label>
+                    <input class="star star-3" id="star-3" type="radio" name="star3"/>
+                    <label class="star star-3" for="star-3"></label>
+                    <input class="star star-2" id="star-2" type="radio" name="star2"/>
+                    <label class="star star-2" for="star-2"></label>
+                    <input class="star star-1" id="star-1" type="radio" name="star1"/>
+                    <label class="star star-1" for="star-1"></label>
+
+                      <div class="comment-btn-group">
+                          <input class="btn btn-primary" type="submit" value="accept" />
+                      </div>
+                 </form>
+             </div>
+             {% endif %}
             </div>
           </li>
         {% endfor %}

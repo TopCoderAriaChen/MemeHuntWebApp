@@ -25,7 +25,6 @@ role_permission_table = db.Table(
   db.Column("permission_id", db.Integer, db.ForeignKey("permission.id"))
 )
 
-
 class RoleModel(db.Model):
   __tablename__ = 'role'
   id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -47,6 +46,8 @@ class UserModel(db.Model):
   join_time = db.Column(db.DateTime, default=datetime.now)
   is_staff = db.Column(db.Boolean, default=False)
   is_active = db.Column(db.Boolean,default=True)
+  credit = db.Column(db.Integer, default=0)
+  level = db.Column(db.Integer, default=0)
 
   # 外键
   role_id = db.Column(db.Integer, db.ForeignKey("role.id"))

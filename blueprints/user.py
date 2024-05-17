@@ -91,7 +91,7 @@ def profile(user_id):
     "user": user,
     "is_mine": is_mine
   }
-  print(user)
+  #print(user)
   return render_template("front/profile.html",**context)
 
 
@@ -111,7 +111,7 @@ def edit_profile():
       avatar_path = os.path.join(current_app.config.get("AVATARS_SAVE_PATH"), filename)
       avatar.save(avatar_path)
       g.user.avatar = url_for("media.media_file",filename=os.path.join("avatars",filename))
-
+    g.user.avatar= g.user.avatar.replace("%5C","/")
     g.user.username = username
     g.user.signature = signature
     db.session.commit()
