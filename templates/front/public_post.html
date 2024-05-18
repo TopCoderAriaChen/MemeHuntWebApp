@@ -5,8 +5,13 @@
 {% endblock %}
 
 {% block head %}
-  <script src="https://cdn.jsdelivr.net/npm/wangeditor@latest/dist/wangEditor.min.js"></script>
+  <!--script src="https://cdn.jsdelivr.net/npm/wangeditor@latest/dist/wangEditor.min.js"></script-->
+
+  <link rel="stylesheet" href="{{ url_for('static',filename='editor/dist/css/style.css') }}">
+
+  <script src="{{ url_for('static',filename='js/wangEditor.min.js') }}"></script>
   <script src="{{ url_for('static',filename='front/js/public_post.js') }}"></script>
+
 {% endblock %}
 
 {% block body %}

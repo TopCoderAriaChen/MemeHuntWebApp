@@ -37,8 +37,8 @@ def mail_captcha():
     email = request.args.get("mail")
     digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     captcha = "".join(random.sample(digits, 4))
-    subject="【知了Python论坛】注册验证码"
-    body = f"【知了Python论坛】您的注册验证码是：{captcha}，请勿告诉别人！"
+    subject="注册验证码"
+    body = f"您的注册验证码是：{captcha}，请勿告诉别人！"
     current_app.celery.send_task("send_mail",(email,subject,body))
     cache.set(email, captcha, timeout=100)
     return restful.ok()
@@ -91,7 +91,7 @@ def profile(user_id):
     "user": user,
     "is_mine": is_mine
   }
-  print(user)
+  #print(user)
   return render_template("front/profile.html",**context)
 
 
@@ -110,8 +110,9 @@ def edit_profile():
       # get saved path
       avatar_path = os.path.join(current_app.config.get("AVATARS_SAVE_PATH"), filename)
       avatar.save(avatar_path)
-      g.user.avatar = url_for("media.media_file",filename=os.path.join("avatars",filename))
-
+      #g.user.avatar = url_for("media.media_file",filename=os.path.join("avatars",filename))
+      g.user.avatar = url_for("static", filename=os.path.join("images/avatars", filename))
+    g.user.avatar= g.user.avatar.replace("%5C","/")
     g.user.username = username
     g.user.signature = signature
     db.session.commit()

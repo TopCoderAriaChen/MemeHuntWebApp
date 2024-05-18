@@ -7,14 +7,14 @@ class BaseConfig:
 
   PERMANENT_SESSION_LIFETIME = timedelta(days=7)
 
-  UPLOAD_IMAGE_PATH = os.path.join(os.path.dirname(__file__),"media")
+  UPLOAD_IMAGE_PATH = os.path.join(os.path.dirname(__file__),"static/images")
 
   PER_PAGE_COUNT = 10
 
 
 class DevelopmentConfig(BaseConfig):
 
-  SQLALCHEMY_DATABASE_URI0 = "mysql+pymysql://root:cyxxx@127.0.0.1:3306/CITS5505-Group-Project?charset=utf8mb4"
+  SQLALCHEMY_DATABASE_URI0 = "mysql+pymysql://root:yxccc@127.0.0.1:3306/CITS5505-Group-Project?charset=utf8mb4"
 
   SQLALCHEMY_DATABASE_URI = "sqlite:////Users/cyxxx/Desktop/CITS5505-Group-Project/db.sqlite"
 

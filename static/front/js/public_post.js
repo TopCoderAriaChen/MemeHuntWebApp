@@ -1,9 +1,10 @@
 $(function (){
+  // alert("editor created begin")  ;
   var editor = new window.wangEditor("#editor");
   editor.config.uploadImgServer  = "/upload/image";
   editor.config.uploadFileName = "image";
   editor.create();
-  //alert("editor created")  ;
+  //alert("editor created finish")  ;
 
   // 提交按钮点击事件
   $("#submit-btn").click(function (event) {

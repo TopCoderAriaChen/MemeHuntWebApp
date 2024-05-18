@@ -1,0 +1,34 @@
+{% extends "front/base.html" %}
+
+{% block title %} My Rank {% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static',filename='front/css/index.css') }}">
+{% endblock %}
+
+{% block body %}
+  <div class="lg-container">
+    <div class="post-group">
+      <table class="table table-bordered mt-5">
+        <tbody>
+          <tr>
+            <td width="100px">User Name</td> <td>number_of_post</td> <td>number_of_comment</td> <td>credits</td><td>User Level</td></tr>
+        {% for rank in ranks %}
+          <tr>
+          <td>
+              <span>{{ rank[0] }}</span></td><td>
+              <span>{{ rank[1] }}</span></td><td>
+              <span>{{ rank[2] }}</span></td><td>
+              <span>{{ rank[3] }}</span></td><td>
+              <span>{{ rank[4] }}</span></td>
+
+          </tr>
+        {% endfor %}
+      {{ pagination.links }}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+{% endblock %}
