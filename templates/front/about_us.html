@@ -8,8 +8,8 @@
   <style>
     body {
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      background-color: #f0e68c;
-      color: #333;
+      background-color: #F1F1F6;
+      color: #7469b6;
       margin: 0;
       padding: 0;
     }
@@ -18,7 +18,7 @@
       text-align: center;
     }
     .about-section {
-      background-color: #ffcc00;
+      background-color: #FFE6E6;
     }
     .about-section h1, .section h2 {
       font-size: 2.5em;
@@ -32,9 +32,9 @@
       color: #333;
     }
     .content-section {
-      background-color: #fff8dc;
-      border-top: 5px solid #ff5733;
-      border-bottom: 5px solid #ff5733;
+      background-color: #F3D0D7;
+      border-top: 5px solid #F1F1F6;
+      border-bottom: 5px solid #C9B6E4;
     }
     .content-section ul {
       list-style-type: disc;
@@ -44,7 +44,7 @@
       display: inline-block;
     }
     .team-section {
-      background-color: #ffefd5;
+      background-color: #E1CCEC;
     }
     .team-section .row {
       display: flex;
@@ -63,12 +63,12 @@
       transform: scale(1.05);
     }
     .team-section .card {
-      background-color: #ffffff;
+      background-color: #FFEFEF;
       border-radius: 10px;
       overflow: hidden;
       text-align: center;
       padding: 20px;
-      border: 2px solid #ffcc00;
+      border: 2px solid #E1AFD1;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .team-section .card img {
@@ -84,7 +84,7 @@
       color: #333;
     }
     .team-section .card .title {
-      color: #ff5733;
+      color: #AD88C6;
       font-size: 1em;
       margin: 5px 0;
     }
@@ -105,7 +105,7 @@
 <div class="section about-section">
   <h1>About Meme Hunt</h1>
   <p>Welcome to Meme Hunt, where the fun never ends! Discover who we are and what we do.</p>
-  <img src="images/gif.png" alt="Meme Hunt" class="about-image">
+  <img src="{{ url_for('static', filename='image/gif.png') }}" alt="Meme Hunt" class="about-image">
 </div>
 
 <div class="section content-section">
@@ -121,9 +121,54 @@
   <p>We aim to create a space where humor thrives and creativity is celebrated. Meme Hunt is not just a website; it's a community where laughter is the universal language, and every meme has the potential to go viral. Join us in our mission to spread joy, one meme at a time.</p>
 </div>
 
+<div class="section team-section">
+  <h2>Meet Our Team</h2>
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="{{ url_for('static', filename='image/YuanxiChen.png') }}" alt="Yuanxi">
+        <div class="container">
+          <h2>Yuanxi Chen</h2>
+          <p class="title">(23750537)</p>
+          <p>Studying Masters of IT at UWA</p>
+        </div>
+      </div>
+    </div>
 
-/* 介绍  */
+    <div class="column">
+      <div class="card">
+        <img src="{{ url_for('static', filename='image/AriaChen.png') }}" alt="Aria">
+        <div class="container">
+          <h2>Aria Chen</h2>
+          <p class="title">(23618522)</p>
+          <p>Studying Masters of IT at UWA</p>
+        </div>
+      </div>
+    </div>
 
+    <div class="column">
+      <div class="card">
+        <img src="{{ url_for('static', filename='image/RaunakChhabra.png') }}" alt="Raunak">
+        <div class="container">
+          <h2>Raunak Chhabra</h2>
+          <p class="title">(23914274)</p>
+          <p>Studying Masters of IT at UWA</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="{{ url_for('static', filename='image/TingChen.png') }}"  alt="Ting">
+        <div class="container">
+          <h2>Ting Chen</h2>
+          <p class="title">(23789274)</p>
+          <p>Studying Masters of IT at UWA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
