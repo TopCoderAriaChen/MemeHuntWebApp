@@ -1,99 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="font-size: 14px;">  
 <head>
   <meta charset="UTF-8">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="title" content="Ask online Form">
-    <meta name="description" content="The Ask is a bootstrap design help desk, support forum website template coded and designed with bootstrap Design, Bootstrap, HTML5 and CSS. Ask ideal for wiki sites, knowledge base sites, support forum sites">
-    <meta name="keywords" content="HTML, CSS, JavaScript,Bootstrap,js,Forum,webstagram ,webdesign ,website ,web ,webdesigner ,webdevelopment">
-    <meta name="robots" content="index, nofollow">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="language" content="English">
-
-    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css">
-
-    <!-- <link href="css/animate.css" rel="stylesheet" type="text/css"> -->
-    <link href="/static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-  <script src="{{ url_for('static',filename='js/jquery-3.1.1.min.js') }}"></script>
-  <!--script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="Meme Hunt">
+  <meta name="robots" content="index, nofollow">
+  <meta property="og:title" content="Home">
+  <meta property="og:type" content="website">
+  <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="/static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-  <script src="{{ url_for('static',filename='common/zlajax.js') }}"></script>
-
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P:400|Chilanka:400|Mali:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static',filename='front/css/base.css') }}">
-
   <link href="/static/css/style.css" rel="stylesheet" type="text/css">
-
+  <style>
+    body {
+      font-size: 12px; /* Adjust the overall font size */
+    }
+    .navbar-brand img {
+      height: 50px; /* Adjust Logo height */
+      width: auto; /* keep scale */
+    }
+    .navbar-nav .nav-link {
+      font-family: 'Press Start 2P', cursive; 
+      font-size: 12px; 
+    }
+    .btn-outline-success {
+      font-family: 'Press Start 2P', cursive; /* Set the search button font to Mosaic style */
+      font-size: 12px; 
+    }
+  </style>
   <title>{% block title %}{% endblock %}</title>
   {% block head %}{% endblock %}
 </head>
-<body>
+<body class="u-body u-xl-mode" data-lang="en">
 
-<nav class="top-bar navbar navbar-expand-lg navbar-light" class0="  bg-light">
-  <a class="navbar-brand" href="/introductory"> Request</a>
-    {% if g.user %}
-        {% if g.user.avatar %}
-            <img height=50 width=50 src="{{ g.user.avatar }}" alt=""/>
-        {% endif %}
-    {% endif %}
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="navbar-menu-left-side239 collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-         <a class="nav-link" href="/myrank">Dashboard<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/index">All Post <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/mypost">My Post <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/mycomment">My Comment<span class="sr-only">(current)</span></a>
-      </li>
-
-    </ul>
-
-     <form class="form-inline my-lg-0" action="/search" method="post">
-      <input class="form-control mr-sm-2"  placeholder="key word" name="key" aria-label="Search">
-      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search</button>
-    </form>
-    <ul class="navbar-nav ml-4">
-      {% if g.user %}
-        {% if g.user.is_staff and g.user.username=='admin' %}
+<header class="u-clearfix u-header u-header" id="sec-ed9d">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand u-image u-logo u-image-1" href="/introductory">
+      <img src="static/images/2024-05-1514.28.36.png" class="u-logo-image u-logo-image-1" alt="Meme Hunt Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link u-text-active-black u-text-black u-text-hover-palette-2-base" href="/index">All Post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link u-text-active-black u-text-black u-text-hover-palette-2-base" href="/myrank">Credits Rank</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link u-text-active-black u-text-black u-text-hover-palette-2-base" href="/mypost">My Post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link u-text-active-black u-text-black u-text-hover-palette-2-base" href="/mycomment">My Comment</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" action="/search" method="post">
+        <input class="form-control mr-sm-2" type="search" placeholder="key word" name="key" aria-label="Search">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <ul class="navbar-nav ml-auto">
+        {% if g.user %}
           <li class="nav-item">
-            <a href="{{ url_for('cms.index') }}" class="nav-link">system_manage</a>
+            {% if g.user.avatar %}
+              <img height="50" width="50" src="{{ g.user.avatar }}" alt="Avatar" class="rounded-circle">
+            {% endif %}
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('user.profile', user_id=g.user.id) }}">{{ g.user.username }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('user.logout') }}">Logout</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('user.login') }}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('user.register') }}">Register</a>
           </li>
         {% endif %}
-        <li class="nav-item">
-            <a href="{{ url_for('user.profile',user_id=g.user.id) }}" class="nav-link">{{ g.user.username }}</a>
-        </li>
-        <li class="nav-item">
-          <a href="{{ url_for("user.logout") }}" class="nav-link">logout</a>
-        </li>
-      {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('user.login') }}">login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('user.register') }}">register</a>
-        </li>
-      {% endif %} 
-    </ul>
-  </div>
-</nav>
+      </ul>
+    </div>
+  </nav>
+</header>
+
 <div class="main-container">
   {% block body %}{% endblock %}
 </div>
+
 </body>
 </html>

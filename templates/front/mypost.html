@@ -1,10 +1,10 @@
 {% extends "front/base.html" %}
 
-{% block title %} The Post Request{% endblock %}
+{% block title %} The Post Request {% endblock %}
 
 {% block head %}
-    <script src="{{ url_for('static',filename='cms/js/posts.js') }}"></script>
-    <link rel="stylesheet" href="{{ url_for('static',filename='front/css/index.css') }}">
+    <script src="{{ url_for('static', filename='cms/js/posts.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='front/css/index.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -13,56 +13,53 @@
       <ul class="post-list-group">
         {% for post in posts %}
           <li>
-          <div class="post-info-group">
-            <p class="post-title">
-              <a href="{{ url_for('front.post_detail',post_id=post.id) }}">{{ post.title }}</a>
-            </p>
-            <p class="post-info">
-              <span>anthor:{{ post.author.username }}</span>
-              <span>publish time:{{ post.create_time }}</span>
-              <span>credit:{{ post.credit }}</span>
-              <span>remark:{{ post.comments.all()|length }}</span>
-              <span>
-              {% if post.author_id==current_user %}
-              {% if post.is_active %}
-                <button class="btn btn-danger btn-sm active-btn" data-active="1" data-post-id="{{ post.id }}">Disable</button>
-              {% else %}
-                <button class="btn btn-info btn-sm active-btn" data-active="0" data-post-id="{{ post.id }}">Enable</button>
-              {% endif %}
-              {% endif %}
-              </span>
-            </p>
-          </div>
-        </li>
+            <div class="post-info-group">
+              <p class="post-title">
+                <a href="{{ url_for('front.post_detail', post_id=post.id) }}">{{ post.title }}</a>
+              </p>
+              <p class="post-info">
+                <span>Author: {{ post.author.username }}</span>
+                <span>Publish time: {{ post.create_time }}</span>
+                <span>Credit: {{ post.credit }}</span>
+                <span>Remark: {{ post.comments.all() | length }}</span>
+                <span>
+                {% if post.author_id == current_user %}
+                  {% if post.is_active %}
+                    <button class="btn btn-danger btn-sm active-btn" data-active="1" data-post-id="{{ post.id }}">Disable</button>
+                  {% else %}
+                    <button class="btn btn-info btn-sm active-btn" data-active="0" data-post-id="{{ post.id }}">Enable</button>
+                  {% endif %}
+                {% endif %}
+                </span>
+              </p>
+            </div>
+          </li>
         {% endfor %}
       </ul>
-      {{ pagination.links }}
+      <div class="pagination-container">
+        {{ pagination.links }}
+      </div>
     </div>
   </div>
 
-  <div class = "sm-container">
-
-    <div style="padding-bottom:10px;">
-      <a href="{{ url_for("front.public_post") }}" class="btn btn-warning btn-block">Post a new message </a>
+  <div class="sm-container">
+    <div style="padding-bottom: 10px;">
+      <a href="{{ url_for('front.public_post') }}" class="btn btn-warning btn-block">Post a new message</a>
     </div>
-
-
-      {% if current_board %}
-        <a href="/" class="list-group-item">all Category</a>
-      {% else %}
-        <a href="/" class="list-group-item active">all Category</a>
-      {% endif %}
-
-       <div class="categori-part329">
-          <h4>Category</h4>
-          {% for board in boards %}
-            {% if board.id == current_board %}
-              <a href="{{ url_for('front.index',board_id=board.id) }}" class="list-group-item active">{{ board.name }}</a>
-            {% else %}
-              <a href="{{ url_for('front.index',board_id=board.id) }}" class="list-group-item">{{ board.name }}</a>
-            {% endif %}
-          {% endfor %}
-        </div>
-
+    {% if current_board %}
+      <a href="/" class="list-group-item">All Categories</a>
+    {% else %}
+      <a href="/" class="list-group-item active">All Categories</a>
+    {% endif %}
+    <div class="categori-part329">
+      <h4>Categories</h4>
+      {% for board in boards %}
+        {% if board.id == current_board %}
+          <a href="{{ url_for('front.index', board_id=board.id) }}" class="list-group-item active">{{ board.name }}</a>
+        {% else %}
+          <a href="{{ url_for('front.index', board_id=board.id) }}" class="list-group-item">{{ board.name }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 {% endblock %}
