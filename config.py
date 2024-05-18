@@ -14,9 +14,9 @@ class BaseConfig:
 
 class DevelopmentConfig(BaseConfig):
 
-  SQLALCHEMY_DATABASE_URI0 = "mysql+pymysql://root:yxccc@127.0.0.1:3306/CITS5505-Group-Project?charset=utf8mb4"
+  SQLALCHEMY_DATABASE_URI0 = "mysql+pymysql://root:124Time124@@127.0.0.1:3306/CITS5505-Group-Project?charset=utf8mb4"
 
-  SQLALCHEMY_DATABASE_URI = "sqlite:////Users/cyxxx/Desktop/CITS5505-Group-Project/db.sqlite"
+  SQLALCHEMY_DATABASE_URI = "sqlite:////Users/yujiachen/Desktop/CITS5505-Group-Project/db.sqlite"
 
   MAIL_SERVER = "smtp.163.com"
   MAIL_USE_SSL = True

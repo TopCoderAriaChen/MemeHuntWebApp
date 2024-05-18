@@ -47,6 +47,11 @@ def introductory():
   context = { }
   return render_template("front/introductory.html", **context)
 
+@bp.route("/about_us")
+def about_us():
+  context = { }
+  return render_template("front/about_us.html", **context)
+
 @bp.route("/index")
 def index():
 
