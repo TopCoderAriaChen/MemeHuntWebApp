@@ -1,30 +1,23 @@
-{% extends 'front/base.html' %}
+ {% extends 'front/base.html' %}
 
 {% block title %}
-  {{ user.username }} user center
+  {{ user.username }} User Center
 {% endblock %}
 
 {% block head %}
-  <style>
-  .profile-box{
-    width: 400px;
-    margin: 0 auto;
-  }
-  .avatar{
-    width: 100px;
-  }
-  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='front/css/index.css') }}">
 {% endblock %}
 
 {% block body %}
   <div class="profile-box">
-  <h1 style="text-align: center;">{{ user.username }}&nbsp; User Center</h1>
+    <h1 class="page-title">{{ user.username }}</h1>
+    <h2 class="page-title">User Center</h2>
     <form action="{{ url_for('user.edit_profile') }}" method="post" enctype="multipart/form-data">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <table class="table table-bordered mt-5">
         <tbody>
           <tr>
-            <th width="100px">username：</th>
+            <th width="100px">Username:</th>
             <td colspan="2">
               {% if is_mine %}
                 <input type="text" name="username" value="{{ user.username }}">
@@ -35,32 +28,37 @@
           </tr>
 
           <tr>
-            <th>photo:</th>
+            <th>Photo:</th>
             <td>
               {% if user.avatar %}
-                <img height=100 width=100 src="{{ user.avatar }}" alt=""/>
+                <img class="avatar" src="{{ user.avatar }}" alt=""/>
               {% else %}
                 <img class="avatar" src="{{ avatars.gravatar(user.email|email_hash)|replace('https://gravatar.com/avatar/','https://cdn.v2ex.com/gravatar/') }}" alt=""/>
               {% endif %}
-              {% if is_mine %}
-                 <td>
-                  <input type="file" name="avatar" accept="image/jpeg, image/png" value="upload"/>
-                 </td>
-              {% endif %}
-             </td>
+            </td>
+            {% if is_mine %}
+              <td>
+                <input type="file" name="avatar" accept="image/jpeg, image/png" value="upload"/>
+              </td>
+            {% endif %}
           </tr>
-          <tr >
-            <th>credit:</th>
-            <td colspan="2">   <input type="text" name="credit" value="{{ user.credit }}" disabled="disabled"/>
+
+          <tr>
+            <th>Credits:</th>
+            <td colspan="2">
+              <input type="text" name="credit" value="{{ user.credit }}" disabled="disabled"/>
             </td>
           </tr>
+
           <tr>
-            <th>level:</th>
-            <td colspan="2">   <input type="text" name="level" value="{{ user.level }}" disabled="disabled">
+            <th>Level:</th>
+            <td colspan="2">
+              <input type="text" name="level" value="{{ user.level }}" disabled="disabled">
             </td>
           </tr>
+
           <tr>
-            <th>signature:</th>
+            <th>Introduction:</th>
             <td colspan="2">
               {% if is_mine %}
                 <input type="text" name="signature" value="{{ user.signature or '' }}">
@@ -78,4 +76,7 @@
       {% endif %}
     </form>
   </div>
-{% endblock %}
+{% endblock %} 
+
+
+

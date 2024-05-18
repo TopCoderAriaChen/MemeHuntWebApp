@@ -188,6 +188,7 @@ body {
   width: auto; /* Adjust table width */
   margin: 0 auto; /* Center the table */
   text-align: center; /* Center text in the table */
+  vertical-align: middle;
 }
 
 .lg-container-rank {
@@ -200,3 +201,80 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+
+
+/* Profile page styles */
+.profile-box {
+  width: 600px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #FFFFFF; /* Set background to white */
+  border: 2px solid #AD88C6; /* Set border color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+.avatar {
+  width: 100px;
+  border: 2px solid #AD88C6; /* Set border color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.table th, .table td {
+  color: #7469B6; /* Set font color */
+  font-size: 12px; /* Set font size */
+  text-align: center; /* Center align text */
+  vertical-align: middle; 
+
+}
+
+.table th {
+  background-color: #FFE6E6; /* Light background for table headers */
+}
+
+.table input[type="text"], .table input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 12px;
+  border: 2px solid #E1AFD1; /* Set border color */
+  border-radius: 5px; /* Rounded corners */
+  vertical-align: middle;
+}
+
+.btn-primary {
+  background-color: #AD88C6; /* Set button background color */
+  border: 2px solid #7469B6; /* Set button border color */
+  color: #FFFFFF; /* Set button font color */
+  font-size: 12px; /* Adjust button font size */
+  padding: 10px 20px; /* Add padding for better appearance */
+  border-radius: 10px; /* Add rounded corners */
+}
+
+.avatar {
+  width: 100px;
+  border: 2px solid #AD88C6; /* Set border color */
+  border-radius: 10px; /* Rounded corners */
+  vertical-align: middle; /* Center image vertically */
+}
+
+/* Custom file input styles */
+.custom-file-input {
+  display: none;
+}
+
+.custom-file-label {
+  display: inline-block;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 12px;
+  color: #7469B6; /* Set font color */
+  background-color: #AD88C6; /* Set background color */
+  border: 2px solid #7469B6; /* Set border color */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+}
+
+.custom-file-label:hover {
+  background-color: #7469B6; /* Darker background on hover */
+  color: #FFFFFF; /* White text on hover */
+}

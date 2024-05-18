@@ -75,7 +75,7 @@ class UserModel(db.Model):
     return permission in [permission.name for permission in self.role.permissions] or permission=='POST'
   
   def add_credits(self, amount):
-    """增加用户的积分"""
+    """Increase the user's points"""
     self.credit += amount
     db.session.add(self)
     db.session.commit()
