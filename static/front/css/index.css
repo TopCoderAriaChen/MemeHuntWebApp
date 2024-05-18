@@ -18,9 +18,9 @@ body {
   }
   
   .lg-container {
-    flex: 3; /* Increase container width */
-    padding: 20px;
-    margin: 0 20px; /* Add side margins */
+    flex: 2; /* Increase container width */
+    padding: 10px;
+    margin: 0 10px; /* Add side margins */
     background-color: #FFFFFF; /* Set background to white */
     border: 2px solid #AD88C6; /* Set border color */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -79,7 +79,22 @@ body {
     overflow: hidden;
     padding-bottom: 20px;
   }
+
+/* -------sidebar --------*/
+  .categories {
+    display: flex;
+    flex-direction: column;
+  }
   
+  .list-group-item {
+    margin-bottom: 10px;
+  }
+  
+  .btn-block {
+    width: 100%;
+  }
+  
+
   .author-avatar-group {
     float: left;
   }
