@@ -22,8 +22,9 @@
       font-size: 12px; /* Adjust the overall font size */
     }
     .navbar-brand img {
-      height: 50px; /* Adjust Logo height */
+      height: 70px; /* Adjust Logo height */
       width: auto; /* keep scale */
+      /* margin-top: 3px; */
     }
     .navbar-nav .nav-link {
       font-family: 'Press Start 2P', cursive; 
@@ -39,11 +40,20 @@
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
 
-<header class="u-clearfix u-header u-header" id="sec-ed9d">
+<!-- <header class="u-clearfix u-header u-header" id="sec-ed9d">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand u-image u-logo u-image-1" href="/introductory">
       <img src="static/images/2024-05-1514.28.36.png" class="u-logo-image u-logo-image-1" alt="Meme Hunt Logo">
+    </a> -->
+
+
+<header class="u-clearfix u-header u-header" id="sec-ed9d">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand u-image u-logo u-image-1" href="/introductory">
+      <img src="{{ url_for('static', filename='images/2024-05-1514.28.36.png') }}" class="u-logo-image u-logo-image-1" alt="Meme Hunt Logo">
     </a>
+
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
