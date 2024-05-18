@@ -66,7 +66,7 @@ def create_admin(username,email,password):
 
 
 def create_board():
-  board_names = ['Python', 'web', 'Data analysis', 'test driver develop', 'maintain']
+  board_names = ['cat', 'celebrities', 'monday', 'lol', 'life']
   for board_name in board_names:
     board = BoardModel(name=board_name)
     db.session.add(board)
