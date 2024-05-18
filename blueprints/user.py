@@ -37,8 +37,8 @@ def mail_captcha():
     email = request.args.get("mail")
     digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     captcha = "".join(random.sample(digits, 4))
-    subject="【知了Python论坛】注册验证码"
-    body = f"【知了Python论坛】您的注册验证码是：{captcha}，请勿告诉别人！"
+    subject="【meme hunt】register verification code"
+    body = f"【meme hunt】register verification code is：{captcha}，don't tell others！"
     current_app.celery.send_task("send_mail",(email,subject,body))
     cache.set(email, captcha, timeout=100)
     return restful.ok()
@@ -60,14 +60,14 @@ def login():
       user = UserModel.query.filter_by(email=email).first()
       if user and user.check_password(password):
         if not user.is_active:
-          flash("该用户已被禁用！")
+          flash("this user is diabled！")
           return redirect(url_for("user.login"))
         session['user_id'] = user.id
         if remember:
           session.permanent = True
         return redirect("/")
       else:
-        flash("邮箱或者密码错误！默认密码=111111")
+        flash("email or password wrong！default password=111111")
         return redirect(url_for("user.login"))
     else:
       for message in form.messages:
