@@ -94,7 +94,7 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 10px;
-    border: 4px solid #AD88C6; /* Increased border width */
+    border: 3px solid #AD88C6; /* Increased border width */
   }
   
   .comment-content {
