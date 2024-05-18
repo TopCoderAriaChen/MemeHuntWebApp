@@ -1,39 +1,29 @@
-{% extends 'cms/base.html' %}
-
-{% block title %}CMS用户管理{% endblock %}
-
-{% block head %}
-
-{% endblock %}
-
-{% block page_title %}
-  {{ self.title() }}
-{% endblock %}
-
-{% block main_content %}
-  <a href="#" class="btn btn-primary mb-3">添加员工</a>
-  <table class="table table-bordered">
-    <thead>
+{% extends 'cms/base.html' %} {% block title %}CMS{% endblock %} {% block head
+%} {% endblock %} {% block page_title %} {{ self.title() }} {% endblock %} {%
+block main_content %}
+<a href="#" class="btn btn-primary mb-3">add staff</a>
+<table class="table table-bordered">
+  <thead>
     <tr>
       <th>#</th>
-      <th>邮箱</th>
-      <th>用户名</th>
-      <th>加入时间</th>
-      <th>角色</th>
-      <th>操作</th>
+      <th>email</th>
+      <th>username</th>
+      <th>join time</th>
+      <th>role</th>
+      <th>operation</th>
     </tr>
-    </thead>
-    <tbody>
+  </thead>
+  <tbody>
     <tr>
       <td>1</td>
       <td>hynever@163.com</td>
-      <td>张三</td>
+      <td>Tina</td>
       <td>2021-10-10</td>
-      <td>运营</td>
+      <td>coo</td>
       <td>
-        <a href="#" class="btn btn-info btn-sm">编辑</a>
+        <a href="#" class="btn btn-info btn-sm">edit</a>
       </td>
     </tr>
-    </tbody>
-  </table>
+  </tbody>
+</table>
 {% endblock %}
