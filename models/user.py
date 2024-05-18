@@ -49,7 +49,7 @@ class UserModel(db.Model):
   credit = db.Column(db.Integer, default=0)
   level = db.Column(db.Integer, default=0)
 
-  # 外键
+  # foreign key
   role_id = db.Column(db.Integer, db.ForeignKey("role.id"))
   role = db.relationship("RoleModel", backref="users")
 
