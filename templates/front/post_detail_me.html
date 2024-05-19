@@ -55,7 +55,7 @@
              <article class="comment-txt">
                 {{ comment.content|safe }}
              </article>
-            {% if comment.author_id!=current_user  %}
+            {% if 1==1 or comment.author_id!=current_user  %}
                 {% if comment.accept==0 %}
              <div class="stars">
                  <form id="accpet_form" action="{{ url_for('front.comment_accept',post_id=post.id) }}" method="post">
@@ -84,7 +84,7 @@
         {% endfor %}
       </ul>
     </div>
-    {% if post.author_id!=current_user  %}
+    {% if 1==1 or post.author_id!=current_user  %}
     <div class="add-comment-group">
       <h3>Post Remark</h3>
       <form id="comment_form" action="{{ url_for('front.public_comment',post_id=post.id) }}" method="post">
