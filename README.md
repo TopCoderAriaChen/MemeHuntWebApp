@@ -11,6 +11,7 @@
 * [Group Members](#group-members)
 * [Technology Stack and Credits](#technology-stack-and-credits)
 * [Source &amp; Credits](#source--credits)
+* [Source &amp; Running the Tests](#Running-the-Tests)
 * [License](#license)
 
 
@@ -79,7 +80,6 @@
 5. **Access the application**:
 
     Navigate to [http://127.0.0.1:5000/introductory](http://127.0.0.1:5000/introductory) in your web browser to access the introductory page
-
 
 
 ## Project Overview
@@ -188,6 +188,27 @@
 * **jQuery Library**
 * **W3C Validation Service**
 
+## Running the Tests
+
+### Available Test Files
+- `unitest-filters.py`: Tests related to the filter functionality.
+- `unitest-front.py`: Tests related to the front-end functionality.
+- `unitest.py`: General unit tests for the project.
+
+### Running the Tests
+To run the tests, follow these steps:
+
+1. **Ensure the Virtual Environment is Activated:**
+
+    ```sh
+    source .venv/bin/activate  # On macOS and Linux
+    .venv\Scripts\activate     # On Windows
+    ```
+
+2. **Run the Filter Tests:**
+
+    ```sh
+    python unitest-filters.py
 
 ## License
 
