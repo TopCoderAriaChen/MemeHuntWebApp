@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "pythagora": "^0.0.80",
+    "testgpt": "^4.1.0"
+  }
+}
