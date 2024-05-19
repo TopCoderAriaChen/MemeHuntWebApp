@@ -1,0 +1,58 @@
+{% extends "cms/base.html" %}
+
+{% block title -%}
+  edit employee
+{%- endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block page_title -%}
+  {{ self.title() }}
+{%- endblock %}
+
+{% block main_content %}
+  <form action="" method="post">
+    <div class="form-container">
+      <div class="form-group form-inline">
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <label for="email">email：</label>
+        <input id="email" type="email" class="form-control" name="email" placeholder="email as user name" readonly value="{{ seluser.email }}">
+      </div>
+      <div class="form-group">
+        <label>is staff：</label>
+
+        <div class="form-check form-check-inline">
+          {% if seluser.is_staff==1 %}
+            <input class="form-check-input" type="radio" name="is_staff" id="is_staff1" value="1" checked>
+            <label class="form-check-label" for="is_staff1" >Yes</label>
+            <input class="form-check-input" type="radio" name="is_staff" id="is_staff2" value="0" >
+            <label class="form-check-label" for="is_staff2" >No</label>
+          {% else %}
+            <input class="form-check-input" type="radio" name="is_staff" id="is_staff1" value="1" >
+            <label class="form-check-label" for="is_staff1" >Yes</label>
+            <input class="form-check-input" type="radio" name="is_staff" id="is_staff2" value="0" checked>
+            <label class="form-check-label" for="is_staff2" >No</label>
+          {% endif %}
+
+        </div>
+      </div>
+      <div class="form-group">
+        <label>role：</label>
+        {% for role in roles %}
+          <div class="form-check form-check-inline">
+            {% if seluser.role_id == role.id %}
+              <input class="form-check-input" type="radio" name="role" id="inlineRadio{{ loop.index }}" value="{{ role.id }}" checked>
+            {% else %}
+              <input class="form-check-input" type="radio" name="role" id="inlineRadio{{ loop.index }}" value="{{ role.id }}">
+            {% endif %}
+            <label class="form-check-label" for="inlineRadio{{ loop.index }}">{{ role.name }}</label>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" id="submit">commit</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}

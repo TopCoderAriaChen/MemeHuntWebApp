@@ -17,11 +17,11 @@ def create_permission():
 
 
 def create_role():
-  # checker
+  # 稽查员
   inspector = RoleModel(name="checker",desc="check message！")
   inspector.permissions = PermissionModel.query.filter(PermissionModel.name.in_([PermissionEnum.POST,PermissionEnum.COMMENT])).all()
 
-  # runner
+  # 运营
   operator = RoleModel(name="runner",desc="maintain to run the web")
   operator.permissions = PermissionModel.query.filter(PermissionModel.name.in_([
     PermissionEnum.POST,
@@ -30,7 +30,7 @@ def create_role():
     PermissionEnum.FRONT_USER
   ])).all()
 
-  # administrator
+  # 管理员
   administrator = RoleModel(name="administrator",desc="web development！")
   administrator.permissions = PermissionModel.query.all()
 
@@ -58,7 +58,7 @@ def create_test_user():
 @click.option("--email",'-e')
 @click.option("--password",'-p')
 def create_admin(username,email,password):
-  admin_role = RoleModel.query.filter_by(name="administrator").first()
+  admin_role = RoleModel.query.filter_by(name="管理员").first()
   admin_user = UserModel(username=username, email=email, password=password, is_staff=True, role=admin_role)
   db.session.add(admin_user)
   db.session.commit()
