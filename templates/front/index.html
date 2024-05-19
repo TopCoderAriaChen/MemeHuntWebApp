@@ -1,50 +1,57 @@
 {% extends "front/base.html" %}
 
-{% block title %} Python Request{% endblock %}
+{% block title %}Meme Hunt{% endblock %}
 
 {% block head %}
-  <link rel="stylesheet" href="{{ url_for('static',filename='front/css/index.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='front/css/index.css') }}">
 {% endblock %}
 
 {% block body %}
-  <div class="lg-container">
-    <div class="post-group">
-      <ul class="post-list-group">
-        {% for post in posts %}
-          <li>
-          <div class="post-info-group">
-            <p class="post-title">
-              <a href="{{ url_for('front.post_detail',post_id=post.id) }}">{{ post.title }}</a>
-            </p>
-            <p class="post-info">
-              <span>anthor：{{ post.author.username }}</span>
-              <span>publish time：{{ post.create_time }}</span>
-              <span>remark：{{ post.comments.all()|length }}</span>
-            </p>
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
-      {{ pagination.links }}
-    </div>
-  </div>
-  <div class="sm-container">
-    <div style="padding-bottom:10px;">
-      <a href="{{ url_for("front.public_post") }}" class="btn btn-warning btn-block">Post a new message </a>
-    </div>
-    <div class="list-group">
-      {% if current_board %}
-        <a href="/" class="list-group-item">all board</a>
-      {% else %}
-        <a href="/" class="list-group-item active">all broad</a>
-      {% endif %}
-      {% for board in boards %}
-        {% if board.id == current_board %}
-          <a href="{{ url_for('front.index',board_id=board.id) }}" class="list-group-item active">{{ board.name }}</a>
+  <div class="container">
+    <div class="content">
+      <div class="lg-container">
+        <div class="post-group">
+          <ul class="post-list-group">
+            {% for post in posts %}
+              <li>
+                <div class="post-info-group">
+                  <p class="post-title">
+                    <a href="{{ url_for('front.post_detail', post_id=post.id) }}">{{ post.title }}</a>
+                  </p>
+                  <p class="post-info">
+                    <span>Author: {{ post.author.username }}</span>
+                    <span>Publish Time: {{ post.create_time }}</span>
+                    <span>Credit: {{ post.credit }}</span>
+                    <span>Comments: {{ post.comments.all() | length }}</span>
+                  </p>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+          {{ pagination.links }}
+        </div>
+      </div>
+
+      <div class="sm-container">
+        <div style="padding-bottom: 10px;">
+          <a href="{{ url_for('front.public_post') }}" class="btn btn-warning btn-block">Post a New Hunt</a>
+        </div>
+        {% if current_board %}
+          <a href="/" class="list-group-item">All Categories</a>
         {% else %}
-          <a href="{{ url_for('front.index',board_id=board.id) }}" class="list-group-item">{{ board.name }}</a>
+          <a href="/" class="list-group-item active">All Categories</a>
         {% endif %}
-      {% endfor %}
+        <div class="categori-part329">
+          <h4>Categories</h4>
+          {% for board in boards %}
+            {% if board.id == current_board %}
+              <a href="{{ url_for('front.index', board_id=board.id) }}" class="list-group-item active">{{ board.name }}</a>
+            {% else %}
+              <a href="{{ url_for('front.index', board_id=board.id) }}" class="list-group-item">{{ board.name }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}

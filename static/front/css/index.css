@@ -1,56 +1,295 @@
-.post-group{
-    border: 1px solid #ddd;
-    overflow: hidden;
-    border-radius: 5px;
+body {
+    font-family: 'Press Start 2P', cursive; /* Pixel style font */
+    background-color: #FFFFFF; /* Set background to white */
+    color: #7469B6; /* Default font color */
+    font-size: 10px; /* Reduce overall font size */
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%; /* Make container full width */
+  }
+  
+  .content {
+    display: flex;
+    width: 100%;
+  }
+  
+  .lg-container {
+    flex: 2; /* Increase container width */
     padding: 10px;
-}
+    margin: 0 10px; /* Add side margins */
+    background-color: #FFFFFF; /* Set background to white */
+    border: 2px solid #AD88C6; /* Set border color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* .sm-container {
+    padding: 20px;
+    flex: 1; 
+    background-color: #FFFFFF; 
+  } */
 
-.post-group-head{
+  .sm-container {
+    flex: 1; /* Adjust width */
+    margin-left: 10px; /* Add space between containers */
+    padding: 10px;
+    background-color: #FFFFFF; /* Set background to white */
+  }
+  
+  .post-group {
+    margin: 20px 0;
+    border: 1px solid #ddd; /* Added border */
+    overflow: hidden;
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding */
+  }
+  
+  .post-group-head {
     overflow: hidden;
     list-style: none;
-}
-
-.post-group-head li{
+  }
+  
+  .post-group-head li {
     float: left;
     padding: 5px 10px;
-}
-
-.post-group-head li a{
-    color:#333;
-}
-
-.post-group-head li.active{
+  }
+  
+  .post-group-head li a {
+    color: #333;
+  }
+  
+  .post-group-head li.active {
     background: #ccc;
-}
-
-.post-list-group li{
+  }
+  
+  .post-list-group {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .post-list-group li {
+    background-color: #FFE6E6; /* Light background */
+    margin: 10px 0;
+    padding: 10px; /* Adjust padding */
+    border: 2px solid #E1AFD1; /* Set border color */
+    color: #7469B6; /* Set font color */
     overflow: hidden;
     padding-bottom: 20px;
-}
+  }
 
-.author-avatar-group{
+/* -------sidebar --------*/
+  .categories {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .list-group-item {
+    margin-bottom: 10px;
+  }
+  
+  .btn-block {
+    width: 100%;
+  }
+  
+
+  .author-avatar-group {
     float: left;
-}
-
-.author-avatar-group img{
+  }
+  
+  .author-avatar-group img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-}
-
-.post-info-group{
+  }
+  
+  .post-info-group {
     float: left;
     border-bottom: 1px solid #e6e6e6;
     width: 85%;
     padding-bottom: 10px;
-}
-
-.post-info-group .post-info{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .post-info-group .post-info {
     margin-top: 10px;
     font-size: 12px;
     color: #8c8c8c;
+  }
+  
+  .post-title a {
+    color: #7469B6; /* Set link color */
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .post-info {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  
+  .post-info span {
+    display: block;
+    margin: 5px 0;
+  }
+  
+  .post-info span {
+    margin-right: 10px;
+  }
+  
+  .btn-block {
+    display: block;
+    width: 100%; /* Ensure button shows all text */
+    font-family: 'Press Start 2P', cursive;
+    background-color: #AD88C6; /* Set button background color */
+    border: 2px solid #7469B6; /* Set button border color */
+    color: #FFFFFF; /* Set button font color */
+    font-size: 12px; /* Adjust button font size */
+    text-align: center; /* Ensure text is centered */
+    border-radius: 10px; /* Add rounded corners */
+    padding: 10px; /* Add padding for better appearance */
+    margin-bottom: 10px; /* Add margin to separate from other elements */
+  }
+  
+  .list-group-item {
+    display: block;
+    padding: 10px;
+    background-color: #FFE6E6; /* Light background */
+    border: 2px solid #E1AFD1; /* Set border color */
+    color: #7469B6; /* Set font color */
+    text-decoration: none;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 12px; /* Adjust list item font size */
+    border-radius: 10px; /* Add rounded corners */
+  }
+  
+  .list-group-item.active {
+    background-color: #AD88C6; /* Set active item background color */
+    color: #FFFFFF; /* Set active item font color */
+  }
+  
+  .categori-part329 h4 {
+    font-size: 14px; /* Adjust title font size */
+    margin: 20px 0;
+    color: #7469B6; /* Set title font color */
+    font-family: 'Press Start 2P', cursive; /* Set pixel style font */
+  }
+  
+  .categori-part329 a {
+    font-size: 12px; /* Adjust link font size */
+    color: #7469B6; /* Set link font color */
+    border-radius: 10px; /* Add rounded corners */
+  }
+  
+
+/*  ------ myrank part  ---------- */
+
+.page-title {
+  padding-top: 40px;
+  text-align: center;
 }
 
-.post-info span{
-    margin-right: 10px;
+/* New CSS for pagination container */
+.pagination-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.table {
+  width: auto; /* Adjust table width */
+  margin: 0 auto; /* Center the table */
+  text-align: center; /* Center text in the table */
+  vertical-align: middle;
+}
+
+.lg-container-rank {
+  display: flex;
+  justify-content: center; /* Center the container */
+  margin: 0 auto; /* Center the container */
+  padding: 20px;
+  background-color: #FFFFFF; /* Set background to white */
+  border: 2px solid #AD88C6; /* Set border color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Profile page styles */
+.profile-box {
+  width: 600px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #FFFFFF; /* Set background to white */
+  border: 2px solid #AD88C6; /* Set border color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+.avatar {
+  width: 100px;
+  border: 2px solid #AD88C6; /* Set border color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.table th, .table td {
+  color: #7469B6; /* Set font color */
+  font-size: 12px; /* Set font size */
+  text-align: center; /* Center align text */
+  vertical-align: middle; 
+
+}
+
+.table th {
+  background-color: #FFE6E6; /* Light background for table headers */
+}
+
+.table input[type="text"], .table input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 12px;
+  border: 2px solid #E1AFD1; /* Set border color */
+  border-radius: 5px; /* Rounded corners */
+  vertical-align: middle;
+}
+
+.btn-primary {
+  background-color: #AD88C6; /* Set button background color */
+  border: 2px solid #7469B6; /* Set button border color */
+  color: #FFFFFF; /* Set button font color */
+  font-size: 12px; /* Adjust button font size */
+  padding: 10px 20px; /* Add padding for better appearance */
+  border-radius: 10px; /* Add rounded corners */
+}
+
+.avatar {
+  width: 100px;
+  border: 2px solid #AD88C6; /* Set border color */
+  border-radius: 10px; /* Rounded corners */
+  vertical-align: middle; /* Center image vertically */
+}
+
+/* Custom file input styles */
+.custom-file-input {
+  display: none;
+}
+
+.custom-file-label {
+  display: inline-block;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 12px;
+  color: #7469B6; /* Set font color */
+  background-color: #AD88C6; /* Set background color */
+  border: 2px solid #7469B6; /* Set border color */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+}
+
+.custom-file-label:hover {
+  background-color: #7469B6; /* Darker background on hover */
+  color: #FFFFFF; /* White text on hover */
 }
