@@ -46,7 +46,7 @@
     SQLALCHEMY_DATABASE_URI = "sqlite:///path_to_your_database.db"
     ```
 
-    **After configuring** `**config.py**`​ **, execute the following commands to set up the database:**
+    **After configuring** `config.py`​ **, execute the following commands to set up the database:**
 
     ```bash
     python3 config.py  # This script should include logic to initialize the database
