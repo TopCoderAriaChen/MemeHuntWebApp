@@ -4,10 +4,17 @@
   {{ post.title }}
 {% endblock %}
 {% block head %}
-  <script src="https://cdn.jsdelivr.net/npm/wangeditor@latest/dist/wangEditor.min.js"></script>
-  <script src="{{ url_for('static',filename='front/js/public_post.js') }}"></script>
 
+  <!--script src="https://cdn.jsdelivr.net/npm/wangeditor@latest/dist/wangEditor.min.js"></script-->
+  <link rel="stylesheet" href="{{ url_for('static',filename='editor/dist/css/style.css') }}">
+  <script src="{{ url_for('static',filename='js/wangEditor.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='front/js/public_post.js') }}"></script>
   <link rel="stylesheet" href="{{ url_for('static',filename='front/css/post_detail.css') }}">
+
+
+    <!-- 引入 css  js
+    <link href="https://unpkg.com/@wangeditor/editor@latest/dist/css/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/@wangeditor/editor@latest/dist/index.js"></script> -->
 {% endblock %}
 
 {% block body %}
@@ -15,19 +22,23 @@
     <div class="post-container">
       <h2><div align="center">{{ post.title }}</div></h2>
       <p class="post-info-group">
-        <span>post time：{{ post.create_time }}</span>
-        <span>anthor：<a href="{{ url_for('user.profile',user_id=post.author.id) }}">{{ post.author.username }}</a></span>
-        <span>broad：{{ post.board.name }}</span>
-        <span>credit：{{ post.credit }}</span>
-        <span>read：{{ post.read_count }}</span>
-        <span>remark：{{ post.comments.count() }}</span>
+        <span>Post Time: {{ post.create_time }}</span>
+        <span>Author: <a href="{{ url_for('user.profile',user_id=post.author.id) }}">{{ post.author.username }}</a>
+            {% if post.author.avatar %}
+            <img width="20px" height="20px"  src="{{ post.author.avatar }}"/>
+            {% endif %}
+        </span>
+        <span>Category: {{ post.board.name }}</span>
+        <span>Credits: {{ post.credit }}</span>
+        <span>Read: {{ post.read_count }}</span>
+        <span>Remark: {{ post.comments.count() }}</span>
       </p>
       <article class="post-content" id="post-content">
         {{ post.content|safe }}
       </article>
     </div>
     <div class="comment-group">
-      <h3>remarks</h3>
+      <h3>Remarks</h3>
       <ul class="comment-list-group">
         {% for comment in post.comments.filter_by(is_active=True) %}
           <li>
@@ -35,6 +46,7 @@
               <p class="author-info">
                 <span>{{ comment.author.username }}</span>
                 <span>{{ comment.create_time }}</span>
+                <span>accept:{{ comment.accept}} &nbsp;</span>
               </p>
               <!--p class="comment-txt need add {}">
                 comment.content
@@ -47,6 +59,7 @@
         {% endfor %}
       </ul>
     </div>
+
     <div class="add-comment-group">
       <h3>Post Remark</h3>
       <form id="comment_form" action="{{ url_for('front.public_comment',post_id=post.id) }}" method="post">
@@ -63,12 +76,14 @@
           <label>Accept degree:1-5</label>
           <input type="text" class="form-control" name="accept" value="0"/>
         </div-->
+
+
         <div class="form-group">
           <!--label>content</label-->
           <div id="editor"></div>
         </div>
         <div class="comment-btn-group">
-          <button class="btn btn-primary" id="comment-btn">P o s t</button>
+          <button class="btn btn-primary" id="comment-btn">Post</button>
         </div>
       </form>
     </div>

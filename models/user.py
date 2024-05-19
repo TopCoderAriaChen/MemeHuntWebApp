@@ -6,11 +6,11 @@ from werkzeug.security import generate_password_hash,check_password_hash
 
 
 class PermissionEnum(Enum):
-  BOARD = "board"
-  POST = "post"
-  COMMENT = "comment"
-  FRONT_USER = "front_user"
-  CMS_USER = "cms_user"
+  BOARD = "BOARD"
+  POST = "POST"
+  COMMENT = "COMMENT"
+  FRONT_USER = "FRONT_USER"
+  CMS_USER = "CMS_USER"
 
 
 class PermissionModel(db.Model):
@@ -24,7 +24,6 @@ role_permission_table = db.Table(
   db.Column("role_id", db.Integer, db.ForeignKey("role.id")),
   db.Column("permission_id", db.Integer, db.ForeignKey("permission.id"))
 )
-
 
 class RoleModel(db.Model):
   __tablename__ = 'role'
@@ -45,11 +44,13 @@ class UserModel(db.Model):
   avatar = db.Column(db.String(100))
   signature = db.Column(db.String(100))
   join_time = db.Column(db.DateTime, default=datetime.now)
-  is_staff = db.Column(db.Boolean, default=False)
+  is_staff = db.Column(db.Boolean, default=True)
   is_active = db.Column(db.Boolean,default=True)
+  credit = db.Column(db.Integer, default=10)
+  level = db.Column(db.Integer, default=1)
 
   # Foreign Key
-  role_id = db.Column(db.Integer, db.ForeignKey("role.id"))
+  role_id = db.Column(db.Integer, db.ForeignKey("role.id"),default=1)
   role = db.relationship("RoleModel", backref="users")
 
   def __init__(self, *args, **kwargs):
@@ -71,4 +72,10 @@ class UserModel(db.Model):
     return result
 
   def has_permission(self, permission):
-    return permission in [permission.name for permission in self.role.permissions]
+    return permission in [permission.name for permission in self.role.permissions] or permission=='POST'
+  
+  def add_credits(self, amount):
+    """Increase the user's points"""
+    self.credit += amount
+    db.session.add(self)
+    db.session.commit()
