@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Meme Hunt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #f0e68c;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .section {
+      padding: 50px;
+      text-align: center;
+    }
+    .about-section {
+      background-color: #ffcc00;
+    }
+    .about-section h1, .section h2 {
+      font-size: 2.5em;
+      margin: 0 0 20px;
+      color: #333;
+      font-family: 'Press Start 2P', cursive; /* Use pixel-style font for headings */
+    }
+    .about-section p, .section p {
+      font-size: 1.2em;
+      margin: 10px 0 0;
+      color: #333;
+    }
+    .content-section {
+      background-color: #fff8dc;
+      border-top: 5px solid #ff5733;
+      border-bottom: 5px solid #ff5733;
+    }
+    .content-section ul {
+      list-style-type: disc;
+      padding: 0 20px;
+      color: #333;
+      text-align: left;
+      display: inline-block;
+    }
+    .team-section {
+      background-color: #ffefd5;
+    }
+    .team-section .row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+    .team-section .column {
+      flex: 1;
+      max-width: 300px;
+      margin: 10px;
+      transition: transform 0.2s;
+      border-radius: 10px;
+    }
+    .team-section .column:hover {
+      transform: scale(1.05);
+    }
+    .team-section .card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      padding: 20px;
+      border: 2px solid #ffcc00;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .team-section .card img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 15px;
+      object-fit: cover; /* Ensure the image is not cropped */
+      border-radius: 10px; /* Keep it square */
+    }
+    .team-section .card h2 {
+      font-size: 1.5em;
+      margin: 10px 0;
+      color: #333;
+    }
+    .team-section .card .title {
+      color: #ff5733;
+      font-size: 1em;
+      margin: 5px 0;
+    }
+    .team-section .card p {
+      font-size: 1em;
+      margin: 10px 0;
+      color: #333;
+    }
+    .about-image {
+      width: 500px; /* Adjust the width as needed */
+      height: auto; /* Maintain aspect ratio */
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="section about-section">
+  <h1>About Meme Hunt</h1>
+  <p>Welcome to Meme Hunt, where the fun never ends! Discover who we are and what we do.</p>
+  <img src="images/gif.png" alt="Meme Hunt" class="about-image">
+</div>
+
+<div class="section content-section">
+  <h2>What We Do</h2>
+  <p>At Meme Hunt, we believe in the power of laughter and the joy of sharing memes. Our platform allows users to:</p>
+  <ul>
+    <li><strong>Post Memes:</strong> Share your funniest, wittiest memes with the community. Whether it's a classic format or an original creation, we welcome all kinds of memes.</li>
+    <li><strong>React to Memes:</strong> Like, comment, and share your reactions to the memes you love. Your feedback helps highlight the best content and brings smiles to others.</li>
+    <li><strong>Climb the Rankings:</strong> The more reactions your memes get, the higher your ranking will be on Meme Hunt. It's not just about being funny—it's about engaging with the community and earning your spot as a top meme creator.</li>
+  </ul>
+
+  <h2>Our Vision</h2>
+  <p>We aim to create a space where humor thrives and creativity is celebrated. Meme Hunt is not just a website; it's a community where laughter is the universal language, and every meme has the potential to go viral. Join us in our mission to spread joy, one meme at a time.</p>
+</div>
+
+<div class="section team-section">
+  <h2>Meet Our Team</h2>
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="images/YuanxiChen.png" alt="Yuanxi">
+        <div class="container">
+          <h2>Yuanxi Chen</h2>
+          <p class="title">(23750537)</p>
+          <p>Studying Masters of IT at UWA</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="images/AriaChen.png" alt="Aria">
+        <div class="container">
+          <h2>Aria Chen</h2>
+          <p class="title">(23618522)</p>
+          <p>Studying Masters of IT at UWA</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="images/RaunakChhabra.png" alt="Raunak">
+        <div class="container">
+          <h2>Raunak Chhabra</h2>
+          <p class="title">(23914274)</p>
+          <p>Studying Masters of IT at UWA</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="images/TingChen.png" alt="Ting">
+        <div class="container">
+          <h2>Ting Chen</h2>
+          <p class="title">(23789274)</p>
+          <p>Studying Masters of IT at UWA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- New Section: User Manual -->
+<div class="section user-manual-section">
+  <h2>How to Use Meme Hunt</h2>
+  <p>Welcome to the Meme Hunt User Manual! Here, we'll guide you through the basics of how to use our platform and make the most out of your meme experience.</p>
+  
+  <h3>Getting Started</h3>
+  <ul>
+    <li><strong>Create an Account:</strong> Sign up with your email or social media accounts. Fill in your profile details to get started.</li>
+    <li><strong>Explore Memes:</strong> Browse through the trending memes on the homepage or use the search bar to find specific content.</li>
+  </ul>
+
+  <h3>Posting Memes</h3>
+  <ul>
+    <li><strong>Upload Memes:</strong> Click on the 'Post a Meme' button. Select your meme image or video file, add a funny caption, and hit 'Submit'.</li>
+    <li><strong>Tag and Categorize:</strong> Use relevant tags and categories to help others find your memes easily.</li>
+  </ul>
+
+  <h3>Interacting with Memes</h3>
+  <ul>
+    <li><strong>React:</strong> Like, comment, and share memes that you enjoy. Your interactions help the content gain visibility.</li>
+    <li><strong>Follow Creators:</strong> Follow your favorite meme creators to stay updated with their latest posts.</li>
+  </ul>
+
+  <h3>Climbing the Rankings</h3>
+  <ul>
+    <li><strong>Earn Reactions:</strong> The more likes, comments, and shares your memes receive, the higher your ranking on the leaderboard.</li>
+    <li><strong>Weekly Rewards:</strong> Top-ranked meme creators receive special badges and rewards every week.</li>
+  </ul>
+
+  <h3>Community Guidelines</h3>
+  <ul>
+    <li><strong>Respect Others:</strong> Maintain a positive environment by being respectful and kind in your interactions.</li>
+    <li><strong>Report Inappropriate Content:</strong> Use the report feature to flag any content that violates our community standards.</li>
+  </ul>
+
+  <p>Join Meme Hunt and become part of a vibrant community where humor and creativity know no bounds. Happy meme hunting!</p>
+</div>
+
+</body>
+</html>
