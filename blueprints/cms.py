@@ -146,6 +146,7 @@ def post_list():
   return render_template("cms/posts.html",posts=posts)
 
 
+
 @bp.post('/posts/active/<int:post_id>')
 @permission_required(PermissionEnum.POST)
 def active_post(post_id):
