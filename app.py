@@ -59,6 +59,3 @@ app.errorhandler(500)(hooks.bbs_500_error)
 app.template_filter("email_hash")(filters.email_hash)
 
 
-
-if __name__ == '__main__':
-  app.run()
