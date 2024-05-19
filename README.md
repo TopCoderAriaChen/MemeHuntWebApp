@@ -87,10 +87,10 @@
   * **Community Engagers**: Users who interact with memes through likes, comments, and shares.
 * **Features**:
 
-  * Meme sharing and creation
-  * Real-time interaction with posts
-  * User-generated meme requests
-  * Leaderboards based on user engagement
+  * Meme sharing and creation.
+  * Real-time interaction with posts.
+  * User-generated meme requests.
+  * Leaderboards based on user engagement.
 
 ‍
 
