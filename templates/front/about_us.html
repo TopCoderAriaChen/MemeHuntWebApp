@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Meme Hunt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #F1F1F6;
+      color: #7469b6;
+      margin: 0;
+      padding: 0;
+    }
+    .section {
+      padding: 50px;
+      text-align: center;
+    }
+    .about-section {
+      background-color: #FFE6E6;
+    }
+    .about-section h1, .section h2 {
+      font-size: 2.5em;
+      margin: 0 0 20px;
+      color: #333;
+      font-family: 'Press Start 2P', cursive; /* Use pixel-style font for headings */
+    }
+    .about-section p, .section p {
+      font-size: 1.2em;
+      margin: 10px 0 0;
+      color: #333;
+    }
+    .content-section {
+      background-color: #F3D0D7;
+      border-top: 5px solid #f19fb0;
+      border-bottom: 5px solid #C9B6E4;
+    }
+    .content-section ul {
+      list-style-type: disc;
+      padding: 0 20px;
+      color: #333;
+      text-align: left;
+      display: inline-block;
+    }
+    .user-manual-section {
+      background-color: #ede0f3;
+    }
+    .team-section {
+      background-color: #e9d5f3;
+      border-top: 5px solid #c889e8;
+    }
+    .team-section .row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+    .team-section .column {
+      flex: 1;
+      max-width: 300px;
+      margin: 10px;
+      transition: transform 0.2s;
+      border-radius: 10px;
+    }
+    .team-section .column:hover {
+      transform: scale(1.05);
+    }
+    .team-section .card {
+      background-color: #FFEFEF;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      padding: 20px;
+      border: 2px solid #E1AFD1;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .team-section .card img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 15px;
+      object-fit: cover; /* Ensure the image is not cropped */
+      border-radius: 10px; /* Keep it square */
+    }
+    .team-section .card h2 {
+      font-size: 1.5em;
+      margin: 10px 0;
+      color: #333;
+    }
+    .team-section .card .title {
+      color: #AD88C6;
+      font-size: 1em;
+      margin: 5px 0;
+    }
+    .team-section .card p {
+      font-size: 1em;
+      margin: 10px 0;
+      color: #333;
+    }
+    .about-image {
+      width: 500px; /* Adjust the width as needed */
+      height: auto; /* Maintain aspect ratio */
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="section about-section">
+  <h1>About Meme Hunt</h1>
+  <p>Welcome to Meme Hunt, where the fun never ends! Discover who we are and what we do.</p>
+  <img src="{{ url_for('static', filename='image/gif.png') }}" alt="Meme Hunt" class="about-image">
+</div>
+
+<div class="section content-section">
+  <h2>What We Do</h2>
+  <p>At Meme Hunt, we believe in the power of laughter and the joy of sharing memes. Our platform allows users to:</p>
+  <ul>
+    <li><strong>Post Memes:</strong> Share your funniest, wittiest memes with the community. Whether it's a classic format or an original creation, we welcome all kinds of memes.</li>
+    <li><strong>React to Memes:</strong> Like, comment, and share your reactions to the memes you love. Your feedback helps highlight the best content and brings smiles to others.</li>
+    <li><strong>Climb the Rankings:</strong> The more reactions your memes get, the higher your ranking will be on Meme Hunt. It's not just about being funny—it's about engaging with the community and earning your spot as a top meme creator.</li>
+  </ul>
+
+  <h2>Our Vision</h2>
+  <p>We aim to create a space where humor thrives and creativity is celebrated. Meme Hunt is not just a website; it's a community where laughter is the universal language, and every meme has the potential to go viral. Join us in our mission to spread joy, one meme at a time.</p>
+</div>
+
+
+<div class="section user-manual-section">
+  <h2>How to Use</h2>
+  <p>Welcome to the <strong>Meme Hunt User Manual</strong>! Here, we'll guide you through the basics of how to use our platform and make the most out of your meme experience.</p>
+
+  <h3>Getting Started</h3>
+  <p>To begin exploring the world of Meme Hunt, <strong>create an account</strong> by registering with your email or through social media. Once registered, complete your profile to personalize your experience. Explore various memes directly from the homepage or utilize the <strong>search and filter functionalities</strong> to discover specific memes or categories that interest you.</p>
+
+  <h3>User Profile and Interaction</h3>
+  <p>In your profile, you can <strong>edit your username and email</strong>, and view your current points and rank. Every 500 points elevate your level, enhancing your status within the community. Engage with memes by <strong>requesting, commenting, and sharing</strong>. Each interaction not only boosts the meme's visibility but also your points, affecting your rank on the leaderboard.</p>
+
+  <h3>Posting Memes</h3>
+  <p>If you have a meme to share or want to respond to a meme request from others, simply click on the <strong>'Post a New Request for Meme'</strong> button. You can upload any meme or gif images with text to describe your request or comment, and importantly, <strong>set a reward in points</strong> for community interactions. Specify the amount of points you are willing to distribute for responses, which can be allocated based on the quality of replies, ranging from 0% to 100% of the promised points.</p>
+
+  <h3>Interacting with Memes</h3>
+  <p>Engage with the community by <strong>reacting to posts you enjoy—like, comment, and share</strong> to help increase the visibility of memes. You can also follow your favorite meme creators to never miss out on their latest posts, enhancing your connection within the community.</p>
+
+  <h3>Get Credit Rewards by commenting to help others</h3>
+  <p>When anyone interacts with a post, whether by replying with a meme or gif image, the post author can use the <strong>reward button</strong> to select how much of the promised points you wish to award. Each post displays the total credits offered, the time it was posted, the author, and the category, along with how many times it has been viewed, providing a comprehensive view of its reach and impact.</p>
+
+  <h3>Climbing the Rankings</h3>
+  <p>Your active participation in posting and interacting with memes earns you points. These points contribute to your ranking on the platform. <strong>Every 500 points you earn advances your level</strong>, bringing you closer to the top of the <strong>leaderboard</strong>. Regular participants may also receive weekly and monthly rewards, including special badges and status icons, as recognition for their contributions.</p>
+
+  <h3>Community Interaction and Guidelines</h3>
+  <p>At Meme Hunt, we value a respectful and positive interaction environment. Please maintain courtesy in your communications and be considerate of others’ feelings. If you encounter content that violates our community standards, do not hesitate to use the <strong>report feature</strong> to flag inappropriate content, helping us keep Meme Hunt a safe space for everyone.</p>
+
+  <h3>Join Meme Hunt and immerse yourself in a vibrant community where humor and creativity know no bounds. Whether you’re here to share a laugh or create something new, we’re excited to have you. Happy meme hunting!</h3>
+</div>
+
+
+<div class="section team-section">
+  <h2>Meet Our Team</h2>
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="{{ url_for('static', filename='image/YuanxiChen.png') }}" alt="Yuanxi">
+        <div class="container">
+          <h2>Yuanxi Chen</h2>
+          <p class="title">(23750537)</p>
+          <p>Studying Masters of IT at UWA</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="{{ url_for('static', filename='image/AriaChen.png') }}" alt="Aria">
+        <div class="container">
+          <h2>Aria Chen</h2>
+          <p class="title">(23618522)</p>
+          <p>Studying Masters of IT at UWA</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="{{ url_for('static', filename='image/RaunakChhabra.png') }}" alt="Raunak">
+        <div class="container">
+          <h2>Raunak Chhabra</h2>
+          <p class="title">(23914274)</p>
+          <p>Studying Masters of IT at UWA</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="{{ url_for('static', filename='image/TingChen.png') }}"  alt="Ting">
+        <div class="container">
+          <h2>Ting Chen</h2>
+          <p class="title">(23789274)</p>
+          <p>Studying Masters of IT at UWA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

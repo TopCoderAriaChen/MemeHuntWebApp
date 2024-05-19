@@ -4,77 +4,83 @@
 
 ### Table of Contents
 
-* [Group Members](#group-members)
 * [Introduction](#introduction)
 * [Getting Started](#getting-started)
 * [Project Overview](#project-overview)
 * [Main Pages and Key Features](#main-pages-and-key-features)
+* [Group Members](#group-members)
 * [Technology Stack and Credits](#technology-stack-and-credits)
 * [Source &amp; Credits](#source--credits)
 * [License](#license)
-
-‍
-
-## Group Memeber
-
-| **UWA ID**   | **Name**           | **Github Username**  |
-| ------------ | ------------------ | -------------------- |
-| **23750537** | **Yuanxi Chen**    | **yuanxichennn**     |
-| **23618522** | **Aria Chen**      | **TopCoderAriaChen** |
-| **23914274** | **Raunak Chhabra** | **raunakchhabra**    |
-| **23789274** | **Ting Chen**      | **TingChen-TC**      |
-
 
 
 ## Introduction
 
 **Meme Hunt** is a dynamic online platform that encourages users to explore, create, and share memes. It fosters a vibrant community where laughter and creativity merge to deliver joy and engagement through memes.
 
-‍
 
 ## Getting Started
 
 ### Prerequisites
 
-* Python 3.x
+* Python 3.9
 * Flask
 * SQLite3
+
 
 ### Installation
 
 1. **Set up the database**:
 
-   ```bash
-   python3 config.py
-   sqlite3 db.sqlite
-   ```
+    Before setting up the database, ensure that the `config.py` file is configured for the desired database system. The file contains configurations for both MySQL and SQLite. 
 
+    **For MySQL:**
+
+    ```python
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:PASSWORD@127.0.0.1:3306/DATABASE_NAME?charset=utf8mb4"
+    ```
+
+    **For SQLite:**
+
+    ```python
+    SQLALCHEMY_DATABASE_URI = "sqlite:///path_to_your_database.db"
+    ```
+
+    **After configuring** `**config.py**`​ **, execute the following commands to set up the database:**
+
+    ```bash
+    python3 config.py  # This script should include logic to initialize the database
+    ```
+
+    **Connect to the database for interactive command-line access：**
+
+    ```bash
+    sqlite3 db.sqlite
+    ```
 2. **Create and activate a virtual environment**:
 
-   * For Windows/Mac:
+    For Windows/Mac:
 
-     ```bash
-     python3.9 -m venv .venv
-     .venv\Scripts\activate  # Windows
-     source .venv/bin/activate  # macOS/Linux
-     ```
-
+    ```bash
+    python3.9 -m venv .venv
+    .venv\Scripts\activate  # Windows
+    source .venv/bin/activate  # macOS/Linux
+    ```
 3. **Install requirements**:
 
-   ```bash
-   pip install -r requirements.txt
-   ```
-
+    ```bash
+    pip install -r requirements.txt
+    ```
 4. **Run the application**:
 
-   ```bash
-   python3 app.py
-   ```
+    ```bash
+    flask run
+    ```
+5. **Access the application**:
 
-5. **Access the application**:  
-   Navigate to [http://127.0.0.1:5000/introductory](http://127.0.0.1:5000/introductory) in your web browser to access the introductory page.
+    Navigate to [http://127.0.0.1:5000/introductory](http://127.0.0.1:5000/introductory) in your web browser to access the introductory page
 
-‍
+
 
 ## Project Overview
 
@@ -92,7 +98,6 @@
   * User-generated meme requests
   * Leaderboards based on user engagement
 
-‍
 
 ## Main Pages and Key Features
 
@@ -147,7 +152,16 @@
 
 * **Leaderboards and Rankings**: Encourages competition and participation through visible rankings based on user activity.
 
-‍
+
+## Group Memeber
+
+| **UWA ID** | **Name** | **Github Username** |
+| -- | -- | -- |
+| **23750537** | **Yuanxi Chen** | **yuanxichennn** |
+| **23618522** | **Aria Chen** | **TopCoderAriaChen** |
+| **23914274** | **Raunak Chhabra** | **raunakchhabra** |
+| **23789274** | **Ting Chen** | **TingChen-TC** |
+
 
 ## Technology Stack and Credits
 
@@ -165,7 +179,6 @@
 * **Flask**
 * **SQLite3**
 
-‍
 
 ## Source & Credits
 
@@ -175,10 +188,7 @@
 * **jQuery Library**
 * **W3C Validation Service**
 
-‍
 
 ## License
 
 This project is licensed under the MIT license.
-
-‍
