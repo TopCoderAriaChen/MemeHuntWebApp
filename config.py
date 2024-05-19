@@ -40,7 +40,15 @@ class DevelopmentConfig(BaseConfig):
 
 
 class TestingConfig(BaseConfig):
-  SQLALCHEMY_DATABASE_URI0 = "mysql+pymysql://[user]:[pass]@[IP]:[port]/pythonbbs?charset=utf8mb4"
+    SQLALCHEMY_DATABASE_URI0 = "mysql+pymysql://[user]:[pass]@[IP]:[port]/pythonbbs?charset=utf8mb4"
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    WTF_CSRF_ENABLED = False
+    CELERY_BROKER_URL = 'memory://'
+    CELERY_RESULT_BACKEND = 'rpc://'
+    CACHE_TYPE = 'null'  # Disable caching for tests
+    SERVER_NAME = 'localhost.localdomain'  # Set a valid SERVER_NAME
+    SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
+
 
 
 class ProductionConfig(BaseConfig):
